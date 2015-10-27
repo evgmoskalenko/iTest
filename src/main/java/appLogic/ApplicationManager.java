@@ -2,10 +2,13 @@ package appLogic;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -26,8 +29,11 @@ public class ApplicationManager {
 	public ApplicationManager(Properties properties){       
 		String browser = properties.getProperty("browser");
 		if("firefox".equals(browser)){
-			driver = new FirefoxDriver();
-			driver.manage().window().maximize();
+			DesiredCapabilities capability = DesiredCapabilities.firefox();
+            capability.setCapability("platform", Platform.ANY);
+            capability.setCapability("binary", "/ms/dist/fsf/PROJ/firefox/16.0.0/bin/firefox"); //for linux
+            driver = new FirefoxDriver();
+            driver.manage().window().maximize();
 		}else if ("ie".equals(browser)){
 			driver = new InternetExplorerDriver();
 		}else if ("chrome".equals(browser)){
