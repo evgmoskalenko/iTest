@@ -8,8 +8,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Reporter;
 
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -31,7 +32,7 @@ public class ApplicationManager {
 		if("firefox".equals(browser)){
 			DesiredCapabilities capability = DesiredCapabilities.firefox();
             capability.setCapability("platform", Platform.ANY);
-            capability.setCapability("binary", "/usr/bin/firefox/firefox-bin"); //for linux
+//            capability.setCapability("binary", "/usr/bin/firefox/firefox-bin"); //for linux
             driver = new FirefoxDriver();
             driver.manage().window().maximize();
 		}else if ("ie".equals(browser)){
@@ -94,4 +95,8 @@ driver.findElement(By.cssSelector("span")).click();
 		 return(driver.findElement(By.cssSelector("span")).isDisplayed());
    
 	}
+
+
+
+
 }
