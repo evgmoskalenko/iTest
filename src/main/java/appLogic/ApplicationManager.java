@@ -31,7 +31,7 @@ public class ApplicationManager {
 		if("firefox".equals(browser)){
 			DesiredCapabilities capability = DesiredCapabilities.firefox();
             capability.setCapability("platform", Platform.ANY);
-            capability.setCapability("binary", "/ms/dist/fsf/PROJ/firefox/16.0.0/bin/firefox"); //for linux
+            capability.setCapability("binary", "/usr/bin/firefox/firefox-bin"); //for linux
             driver = new FirefoxDriver();
             driver.manage().window().maximize();
 		}else if ("ie".equals(browser)){
