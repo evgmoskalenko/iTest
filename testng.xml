@@ -6,6 +6,7 @@
       <class name="tests.AccessToDocumentByCodeTest"/> 
       <class name="tests.MyLogTest"/>
       <class name="tests.SearchServiceTest"/>
+      <class name="tests.FooterTest"/>
     </classes>
   </test> <!-- Test -->
   

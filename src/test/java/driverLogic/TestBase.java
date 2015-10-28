@@ -26,7 +26,7 @@ public class TestBase {
     protected static ApplicationManager app;
 
 
-    @BeforeClass
+    @BeforeSuite
     public void setUp() throws Exception {
 
         Properties properties = new Properties();
@@ -141,7 +141,7 @@ public class TestBase {
         }
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() throws Exception {
         app.stop();
     }

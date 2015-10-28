@@ -61,7 +61,6 @@ public class DocumentsPage extends Page {
 	}
 	public DocumentsPage inputCode(){
 		inputCodeField.sendKeys(accessCode);
-		System.out.println(accessCode);
 		return pages.documentsPage;
 	}
 	public DocumentsPage clickSearchWithCodeLink(){

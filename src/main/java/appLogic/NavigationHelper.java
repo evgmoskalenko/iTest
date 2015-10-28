@@ -3,6 +3,7 @@ package appLogic;
 import pages.DocumentsPage;
 import pages.MyLogPage;
 
+
 public class NavigationHelper extends DriverBasedHelper {
  
 	private String baseUrl;
@@ -34,6 +35,31 @@ public class NavigationHelper extends DriverBasedHelper {
 	}
 	public void goToAboutPortalPage(){
 		pages.mainPage.ensurePageLoaded().clickAboutPortalLink();
+	}
+
+	public boolean isPortalsNewsOnFacebookLinkDisplayed() {
+		pages.mainPage.ensurePageLoaded().isPortalsNewsOnFacebookLinkDisplayed();
+		return true;
+	}
+
+	public boolean isNoSuchServicesLinkDisplayed() {
+		pages.mainPage.ensurePageLoaded().isNoSuchServicesLinkDisplayed();
+		return true;
+	}
+
+	public boolean isErrorOrABugOnThePortalLinkDisplayed() {
+		pages.mainPage.ensurePageLoaded().isErrorOrABugOnThePortalLinkDisplayed();
+		return true;
+	}
+	
+	public boolean isJoinOnGitHubLinkDisplayed() {
+		pages.mainPage.ensurePageLoaded().isJoinOnGitHubLinkDisplayed();
+		return true;
+	}
+	
+	public boolean isCommentsAndOpportunitiesLinkDisplayed() {
+		pages.mainPage.ensurePageLoaded().isCommentsAndOpportunitiesLinkDisplayed();
+		return true;
 	}
 
 }

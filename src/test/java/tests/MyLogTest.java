@@ -19,7 +19,7 @@ public class MyLogTest extends TestBase {
 		app.getNavigationHelper().goToMyLogPage();
 		app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromMyLogPage();
 		app.getBankIdAuthorizationHalper().privatBankAuthorization();
-		assertTrue(app.getServiceHelper().isMyLogDisplayed("Мій журна"));
+		assertTrue(app.getServiceHelper().isMyLogDisplayed("Мій журнал"));
 	}
 
 	
