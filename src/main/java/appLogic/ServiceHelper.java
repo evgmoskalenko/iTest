@@ -23,8 +23,8 @@ public class ServiceHelper extends DriverBasedHelper{
 	  return pages.mainPage.isNotFinded();
 	  }
 	  
-	  public boolean isMyLogDisplayed(String text) {
-	  pages.myLogPage.isMyLogDisplayed(text);
+	  public boolean isMyLogDisplayed() {
+	  pages.myLogPage.isMyLogDisplayed();
 	  return true;
 	  }
 }

@@ -28,9 +28,9 @@ public class MyLogPage extends Page {
 		return pages.bankIdAuthorizationPage;
 	}
 
-    public boolean isMyLogDisplayed(String text){
+    public boolean isMyLogDisplayed(){
     	wait.until(presenceOfElementLocated(By.cssSelector("h1")));
-    	assertEquals(text, driver.findElement(By.cssSelector("h1")).getText());
+    	assertEquals("Мій журнал", driver.findElement(By.xpath("/html/body/div/div[2]/div/div/div/div/div[2]/div[1]/div[1]/h1")).getText());
 		return true;
     	
 	 }

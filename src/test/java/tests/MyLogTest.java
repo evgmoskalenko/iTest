@@ -3,7 +3,7 @@ package tests;
 import static org.junit.Assert.assertTrue;
 
 
-import org.openqa.selenium.WebDriver;
+
 import org.testng.annotations.Test;
 
 
@@ -19,7 +19,7 @@ public class MyLogTest extends TestBase {
 		app.getNavigationHelper().goToMyLogPage();
 		app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromMyLogPage();
 		app.getBankIdAuthorizationHalper().privatBankAuthorization();
-		assertTrue(app.getServiceHelper().isMyLogDisplayed("Мій журнал"));
+		assertTrue(app.getServiceHelper().isMyLogDisplayed());
 	}
 
 	
