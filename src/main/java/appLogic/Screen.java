@@ -4,12 +4,9 @@ import org.testng.Reporter;
 
 import java.util.*;
 
-/**
- * Created by Privat24 on 27.10.2015.
- */
 public class Screen {
 
-    // --------------------------Screen----------------------//
+//    --------------------------Screen----------------------//
     public static void addErrorToTheReport(String testName) throws Exception
     {
         Reporter.log("<b><font color=\"red\" size=\"3\">" + testName + "</font></b><br>");
@@ -43,5 +40,5 @@ public class Screen {
         // calendar.set(Calendar.HOUR, 3);
         return calendar;
 
-    }
+   }
 }

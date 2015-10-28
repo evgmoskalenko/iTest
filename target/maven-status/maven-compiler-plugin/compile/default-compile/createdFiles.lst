@@ -8,6 +8,7 @@ pages\MyLogPage.class
 pages\MainPage.class
 appLogic\DocumentsHalper.class
 appLogic\ServiceHelper.class
+appLogic\Screen.class
 pages\DisplayedElementLocator.class
 pages\PageManager.class
 pages\BankIdAuthorizationPage.class

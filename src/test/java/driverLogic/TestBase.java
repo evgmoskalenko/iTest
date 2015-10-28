@@ -3,6 +3,7 @@ package driverLogic;
 
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.Calendar;
 import java.util.Properties;
@@ -21,35 +22,27 @@ import appLogic.ApplicationManager;
 
 
 public class TestBase {
-	
-protected static ApplicationManager app;
-private static WebDriver driver;
+
+    protected static ApplicationManager app;
 
 
+    @BeforeClass
+    public void setUp() throws Exception {
 
-	@BeforeSuite
-	public void setUp() throws Exception {
+        Properties properties = new Properties();
+        properties.load(new FileReader(new File("application.properties")));
+        app = new ApplicationManager(properties);
+    }
 
-		Properties properties = new Properties();
-		properties.load(new FileReader(new File("application.properties")));
-		app = new ApplicationManager(properties);
-	    
-	  }
-	
+    @BeforeMethod
+    public void beforeMethod() throws Exception {
+        app.mainPage();
+    }
 
-	@AfterSuite
-	public void tearDown() throws Exception {
-		app.stop();
-
-	    }
-	@AfterClass
-	public void afterMethod() throws Exception{
-		app.signOut();
-	}
-	@BeforeClass
-	public void beforeMethod()throws Exception{
-		app.mainPage();
-	}
+    @AfterClass
+    public void afterMethod() throws Exception {
+        app.signOut();
+    }
 
     @AfterMethod(alwaysRun = true)
     public void takeScreenshot(ITestResult result) throws Exception
@@ -113,7 +106,7 @@ private static WebDriver driver;
             {
                 File screenshot1 = new File("TestReport/html/Screens/" +result.getMethod().getMethodName() + ".png");
                 screenshot1.delete();
-                File screenshotTempFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                File screenshotTempFile = ((TakesScreenshot) app.getDriver()).getScreenshotAs(OutputType.FILE);
                 try
                 {
                     Files.copy(screenshotTempFile, screenshot1);
@@ -126,7 +119,7 @@ private static WebDriver driver;
                         "<center>Скриншот снят при падении теста " +
                                 screenshot1.getName() +
                                 ", URL = " +
-                                driver.getCurrentUrl() +
+                                app.getDriver().getCurrentUrl() +
                                 "<br><div><a target=\"_blank\" href=\"Screens/" +
                                 result.getMethod().getMethodName() +
                                 ".png\"><img  style=\"height:400px; width: 600px;\"  src=\"" + "Screens/" +
@@ -148,6 +141,8 @@ private static WebDriver driver;
         }
     }
 
-
-
+    @AfterClass
+    public void tearDown() throws Exception {
+        app.stop();
+    }
 	}

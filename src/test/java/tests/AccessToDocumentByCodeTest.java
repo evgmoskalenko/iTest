@@ -17,10 +17,6 @@ public class AccessToDocumentByCodeTest extends TestBase {
 		assertTrue(app.getDocumentsHalper().isAccessCodeNotNull());
 		app.getDocumentsHalper().searchDocumentWithCode();
 		assertTrue(app.getDocumentsHalper().isDocumentFound());
-		
-		
-		
-		
-		
+
 	}
 }

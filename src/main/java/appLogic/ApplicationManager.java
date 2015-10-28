@@ -6,6 +6,8 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Reporter;
@@ -29,12 +31,18 @@ public class ApplicationManager {
 	
 	public ApplicationManager(Properties properties){       
 		String browser = properties.getProperty("browser");
-		if("firefox".equals(browser)){
+
+        // ------  Для запуска свого профиля ----- //
+//		if (browser.equalsIgnoreCase("firefox")) {
+//            ProfilesIni allProfiles = new ProfilesIni();
+//            FirefoxProfile profile = allProfiles.getProfile("default");
+//            driver = new FirefoxDriver(profile);
+
+      if ("firefox".equals(browser)){
 			DesiredCapabilities capability = DesiredCapabilities.firefox();
-            capability.setCapability("platform", Platform.ANY);
-//            capability.setCapability("binary", "/usr/bin/firefox/firefox-bin"); //for linux
-            driver = new FirefoxDriver();
-            driver.manage().window().maximize();
+          capability.setCapability("platform", Platform.ANY);
+          driver = new FirefoxDriver();
+          driver.manage().window().maximize();
 		}else if ("ie".equals(browser)){
 			driver = new InternetExplorerDriver();
 		}else if ("chrome".equals(browser)){
@@ -97,6 +105,7 @@ driver.findElement(By.cssSelector("span")).click();
 	}
 
 
-
-
+    public WebDriver getDriver() {
+        return driver;
+    }
 }
