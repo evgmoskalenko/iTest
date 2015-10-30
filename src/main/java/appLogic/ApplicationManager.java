@@ -33,15 +33,15 @@ public class ApplicationManager {
 		String browser = properties.getProperty("browser");
 
 //        ------  Для запуска свого профиля ----- //
-		if (browser.equalsIgnoreCase("firefox")) {
-            ProfilesIni allProfiles = new ProfilesIni();
-            FirefoxProfile profile = allProfiles.getProfile("default");
-            driver = new FirefoxDriver(profile);
+//		if (browser.equalsIgnoreCase("firefox")) {
+//            ProfilesIni allProfiles = new ProfilesIni();
+//            FirefoxProfile profile = allProfiles.getProfile("default");
+//            driver = new FirefoxDriver(profile);
 
-//      if ("firefox".equals(browser)){
-//			DesiredCapabilities capability = DesiredCapabilities.firefox();
-//          capability.setCapability("platform", Platform.ANY);
-//          driver = new FirefoxDriver();
+      if ("firefox".equals(browser)){
+			DesiredCapabilities capability = DesiredCapabilities.firefox();
+          capability.setCapability("platform", Platform.ANY);
+          driver = new FirefoxDriver();
           driver.manage().window().maximize();
 		}else if ("ie".equals(browser)){
 			driver = new InternetExplorerDriver();
