@@ -27,15 +27,15 @@ public class MyDocument extends TestBase {
         assertTrue(app.getDocumentsHalper().isDocumentFound());                        // Проверка , что появилась кнопка загрузки
     }
 
-//    @Test
-//    public void uploadDocumentTest() throws Exception {
-//        String document = "src/resources/Квитанция.txt";
-//        app.getNavigationHelper().goToDocumentsPage();
-//        app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromDocumentsPage(); // Перейти по Bank ID
-//        app.getBankIdAuthorizationHalper().privatBankAuthorization();
-//        app.getDocumentsHalper().isDocumentUpload(document);
-//        app.getDocumentsHalper().saveDocument();
-//
-//    }
+    @Test
+    public void uploadDocumentTest() throws Exception {
+        String document = "src/resources/Квитанция.txt";
+        app.getNavigationHelper().goToDocumentsPage();
+        app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromDocumentsPage(); // Перейти по Bank ID
+        app.getBankIdAuthorizationHalper().privatBankAuthorization();
+        app.getDocumentsHalper().isDocumentUpload(document);
+        app.getDocumentsHalper().saveDocument();
+
+    }
 
 }
