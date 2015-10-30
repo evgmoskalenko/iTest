@@ -40,7 +40,7 @@ public class TestBase {
     }
 
     @AfterClass
-    public void afterMethod() throws Exception {
+    public void afterClass() throws Exception {
         app.signOut();
     }
 

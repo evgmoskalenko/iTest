@@ -30,7 +30,7 @@ public class MyLogPage extends Page {
 
     public boolean isMyLogDisplayed(){
     	wait.until(presenceOfElementLocated(By.cssSelector("h1")));
-    	assertEquals("Мій журнал", driver.findElement(By.xpath("/html/body/div/div[2]/div/div/div/div/div[2]/div[1]/div[1]/h1")).getText());
+    	assertEquals("Мій журнал", driver.findElement(By.xpath("//h1[contains(.,'Мій журнал')]")).getText());
 		return true;
     	
 	 }

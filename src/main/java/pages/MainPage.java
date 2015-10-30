@@ -107,13 +107,13 @@ public boolean isFinded(String text,String locator) {
 	
 public boolean isNotFinded() {
 	  try{
-		   wait.until(presenceOfElementLocated(By.cssSelector("html.no-js")));
+		   wait.until(presenceOfElementLocated(By.xpath("//html[@class='no-js firepath-matching-node']")));
 		  return true;
 	  }
 	  catch (TimeoutException to){	return false;}
 	  }
 public boolean isLoggedIn() {
-	if(driver.findElement(By.cssSelector("span")).isDisplayed()){
+	if(driver.findElement(By.xpath("//span[contains(.,'Вийти')]")).isDisplayed()){
  	   return true;
   }else{
     return false;	 

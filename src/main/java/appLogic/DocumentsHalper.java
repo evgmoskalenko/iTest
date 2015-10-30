@@ -1,5 +1,10 @@
 package appLogic;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
+
 public class DocumentsHalper extends DriverBasedHelper {
 
 	public DocumentsHalper(ApplicationManager manager) {
@@ -34,4 +39,16 @@ public class DocumentsHalper extends DriverBasedHelper {
 		pages.documentsPage.isElementPresent();
 		return true;
 	}
+
+    public boolean isDocumentUpload(String document ) throws  AWTException  {
+        pages.documentsPage.uploadFile(document);
+        return true;
+    }
+
+    public boolean saveDocument( )   {
+        pages.documentsPage.saveNewDocuments();
+        return true;
+    }
+
+
 }

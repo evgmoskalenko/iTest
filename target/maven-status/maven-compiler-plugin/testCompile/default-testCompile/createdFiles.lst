@@ -1,4 +1,5 @@
+tests\MyDocument.class
+tests\FooterTest.class
 tests\SearchServiceTest.class
-tests\AccessToDocumentByCodeTest.class
 tests\MyLogTest.class
 driverLogic\TestBase.class
