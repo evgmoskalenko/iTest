@@ -31,8 +31,8 @@ public class MyDocument extends TestBase {
     public void uploadDocumentTest() throws Exception {
         String document = "src/resources/Квитанция.txt";
         app.getNavigationHelper().goToDocumentsPage();
-        app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromDocumentsPage(); // Перейти по Bank ID
-        app.getBankIdAuthorizationHalper().privatBankAuthorization();
+//        app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromDocumentsPage(); // Перейти по Bank ID
+//        app.getBankIdAuthorizationHalper().privatBankAuthorization();
         app.getDocumentsHalper().isDocumentUpload(document);
         app.getDocumentsHalper().saveDocument();
 

@@ -29,8 +29,8 @@
       <file leaf-file-name="MyDocument.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/tests/MyDocument.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5103926" vertical-offset="306" max-vertical-offset="782">
-              <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.6674365" vertical-offset="306" max-vertical-offset="782">
+              <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1211,8 +1211,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/tests/MyDocument.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5103926" vertical-offset="306" max-vertical-offset="782">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.6674365" vertical-offset="306" max-vertical-offset="782">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
