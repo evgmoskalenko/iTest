@@ -39,10 +39,10 @@ public class TestBase {
         app.mainPage();
     }
 
-    @AfterClass
-    public void afterClass() throws Exception {
-        app.signOut();
-    }
+//    @AfterClass
+//    public void afterClass() throws Exception {
+//        app.signOut();
+//    }
 
     @AfterMethod(alwaysRun = true)
     public void takeScreenshot(ITestResult result) throws Exception

@@ -4,15 +4,11 @@ package tests;
 import static org.junit.Assert.*;
 
 
-import com.sun.xml.internal.bind.v2.TODO;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import driverLogic.TestBase;
-import pages.DocumentsPage;
 
-import javax.swing.text.Document;
-import java.io.File;
+
+
 
 public class MyDocument extends TestBase {
 
