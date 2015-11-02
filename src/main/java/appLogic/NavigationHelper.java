@@ -62,6 +62,13 @@ public class NavigationHelper extends DriverBasedHelper {
 		return true;
 	}
 
+    public boolean isCheckElectronDigitalSignatureLinkDisplayed() {
+        pages.mainPage.ensurePageLoaded().isCheckElectronDigitalSignatureLinkDisplayed();
+        return true;
+    }
+
+
+
 
 
 }

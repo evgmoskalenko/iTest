@@ -152,7 +152,7 @@ public class DocumentsPage extends Page {
                 .setContents(stringSelection, null);
     }
 
-    public void uploadFile(String document) throws  AWTException {
+    public DocumentsPage uploadFile(String document) throws  AWTException {
         File file = new File(document);
         //
         upload.click();
@@ -173,13 +173,15 @@ public class DocumentsPage extends Page {
         robot.delay(300);
         robot.keyRelease(KeyEvent.VK_ENTER);
         robot.delay(300);
+        return pages.documentsPage;
     }
 
 // save new document
-         public  void saveNewDocuments() {
+         public  DocumentsPage saveNewDocuments() {
              nameNewDocument.sendKeys("Test");
 //          selectValue(By.name("documentTypeForUpload"),"ІПН");
              saveNewDocument.click();
+             return pages.documentsPage;
 
 
          }

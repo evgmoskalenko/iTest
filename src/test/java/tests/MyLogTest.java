@@ -17,7 +17,7 @@ public class MyLogTest extends TestBase {
 	public void myLogTest() throws Exception{
 		
 		app.getNavigationHelper().goToMyLogPage();
-		app.getBankIdAuthorizationHalper().initBankIdAuthorizationFromMyLogPage();
+
 		app.getBankIdAuthorizationHalper().privatBankAuthorization();
 		assertTrue(app.getServiceHelper().isMyLogDisplayed());
 	}

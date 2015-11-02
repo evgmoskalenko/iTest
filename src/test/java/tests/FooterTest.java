@@ -2,6 +2,7 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import driverLogic.TestBase;
@@ -33,4 +34,14 @@ public class FooterTest extends TestBase {
 		
 		assertTrue(app.getNavigationHelper().isCommentsAndOpportunitiesLinkDisplayed());
 		}
+
+    @Test
+    public void checkElectronDigitalSignatureLinkDisplayedTest() throws Exception{
+
+        assertTrue(app.getNavigationHelper().isCheckElectronDigitalSignatureLinkDisplayed());
+    }
+
+
+
 }
+

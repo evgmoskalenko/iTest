@@ -20,26 +20,32 @@ public class MainPage extends Page  {
 	}
 	public MainPage ensurePageLoaded(){
 		super.ensurePageLoaded();
-		wait.until(presenceOfElementLocated((By.cssSelector("html.no-js body.ng-scope div.full-height.ng-scope div.main.full-height div.view.ng-scope div.container.ng-scope div.row.ng-scope div.col-md-12 h1.ng-binding"))));
+		wait.until(presenceOfElementLocated((By.xpath("//h1[@class='ng-binding']"))));
 		return this;
 	}
-@FindBy(xpath = "//input")	
+@FindBy(xpath = "//input[@ng-change='search()']")
 private WebElement searchField;
 
-@FindBy(css = "h4")	
+@FindBy(xpath = "//h4[contains(.,'Послуги')]")
 private WebElement servicesLink;
 
-@FindBy(xpath = "//li[2]/a/h4")	
+@FindBy(xpath = "//h4[contains(.,'Документи')]")
 private WebElement documentsLink;
 
-@FindBy(xpath = "//li[3]/a/h4")	
+@FindBy(xpath = "//h4[contains(.,'Статуси')]")
 private WebElement statusLink;
 
-@FindBy(xpath = "//li[4]/a/h4")	
+@FindBy(xpath = "//h4[contains(.,'Мій журнал')]")
 private WebElement myLogLink;
 
-@FindBy(xpath = "//li[5]/a/h4")	
+@FindBy(xpath = "//h4[contains(.,'Про портал')]")
 private WebElement aboutPortalLink;
+
+
+//----------------  Футер ------------------//
+
+@FindBy(xpath = "//a[contains(@href,'https://igov.org.ua/ecp')]")
+private WebElement checkElectronDigitalSignatureLink;
 
 @FindBy(xpath = "//a[contains(@href, 'https://www.facebook.com/igov.org.ua')]")
 private WebElement portalsNewsOnFacebookLink;
@@ -55,6 +61,9 @@ private WebElement joinOnGitHubLink;
 
 @FindBy(xpath = "//a[contains(@href, 'https://github.com/e-government-ua/iForum/issues')]")
 private WebElement commentsAndOpportunitiesLink;
+
+//---------------- {что-то еще}  ------------------//
+
 
 public MainPage typeInSearchField(String text){
 	searchField.clear();
@@ -96,6 +105,9 @@ public void isJoinOnGitHubLinkDisplayed() {
 public void isCommentsAndOpportunitiesLinkDisplayed() {
 	commentsAndOpportunitiesLink.isDisplayed();	
 }
+public void isCheckElectronDigitalSignatureLinkDisplayed() {
+        checkElectronDigitalSignatureLink.isDisplayed();
+    }
 
 
 
