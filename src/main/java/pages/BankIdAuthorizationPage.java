@@ -2,20 +2,21 @@ package pages;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
-import org.openqa.selenium.By;
+import appLogic.ApplicationManager;
+import appLogic.Constants;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class BankIdAuthorizationPage extends Page {
-	public BankIdAuthorizationPage(PageManager pages){
-		super(pages);
-	}
+public class BankIdAuthorizationPage extends ApplicationManager {
+    private WebDriver driver;
 
-	public BankIdAuthorizationPage ensurePageLoaded(){
-		super.ensurePageLoaded();
-		wait.until(presenceOfElementLocated(By.id("info")));
-		return this;
-	}
+
+    public BankIdAuthorizationPage (WebDriver driver) {
+        PageFactory.initElements(driver, this);
+        this.driver = driver;
+    }
 
     //    ------------------- Элементы ID Bank------------------------------//
 
@@ -48,32 +49,39 @@ public class BankIdAuthorizationPage extends Page {
 
 
     //    ------------------- Метод ввода ОТР  ------------------------------//
-    public BankIdAuthorizationPage typeOTP ( ) {
-        otpOne.sendKeys("12");
-        otpTwo.sendKeys("34");
-        otpThree.sendKeys("56");
+    public void typeOTP ( ) {
+        otpOne.sendKeys(Constants.Settings.BankIDprivatBank.OTP1);
+        otpTwo.sendKeys(Constants.Settings.BankIDprivatBank.OTP2);
+        otpThree.sendKeys(Constants.Settings.BankIDprivatBank.OTP3);
         confirm.click();
-        return pages.bankIdAuthorizationPage;
+
     }
     //    ------------------- Вибор метода входа - ИД Банк  ------------------------------//
-    public BankIdAuthorizationPage selectMethodBankID ( ) {
+    public void selectMethodBankID ( ) {
         BankID.click();
-        return pages.bankIdAuthorizationPage;
+
     }
 
     //    ------------------- Вибор Банка для входа  ------------------------------//
-    public BankIdAuthorizationPage selectPrivatBankBankID ( ) {
+    public void selectPrivatBankBankID ( ) {
         privatBank.click();
-        return pages.bankIdAuthorizationPage;
+
     }
 
     //    ------------------- Метод ввода логина пароля ------------------------------//
-    public BankIdAuthorizationPage typeLoginPassword ( ) {
+    public void typeLoginPassword ( ) {
         phone.clear();
-        phone.sendKeys("+380102030405");
-        password.sendKeys("value");
+        phone.sendKeys(Constants.Settings.BankIDprivatBank.Login);
+        password.sendKeys(Constants.Settings.BankIDprivatBank.Password);
         signIn.click();
-        return pages.bankIdAuthorizationPage;
+
+    }
+
+    public void privatBankAuthorization(){
+                selectMethodBankID();
+                selectPrivatBankBankID();
+                typeLoginPassword();
+                typeOTP();
     }
 
 }

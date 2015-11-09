@@ -2,18 +2,30 @@ package pages;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
+import appLogic.ApplicationManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 
-public class StatusPage extends Page {
-	public StatusPage(PageManager pages){
-		super(pages);
-	}
-	public StatusPage ensurePageLoaded(){
-		super.ensurePageLoaded();
-		wait.until(presenceOfElementLocated((By.xpath("/html/body/div/div[2]/div/div/div/div/div/div[1]/div/p"))));
-		return this;
-	}
+public class StatusPage extends ApplicationManager {
+
+    private WebDriver driver;
+
+
+    public StatusPage (WebDriver driver) {
+        PageFactory.initElements(driver, this);
+        this.driver = driver;
+    }
+
+
+    //    ------------------- Элементы ID Bank------------------------------//
+
+//    @FindBy(xpath = "//span[contains(.,'BankID')]")
+//    public WebElement BankID;          // кнопка входа в ИД Банк
+
+
+    // =============================================== МЕТОДЫ  =================================================//
 
 
 }

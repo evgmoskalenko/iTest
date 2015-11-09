@@ -1,12 +1,7 @@
 package tests;
 
-
-import static org.junit.Assert.*;
-
-
 import org.testng.annotations.Test;
 import driverLogic.TestBase;
-
 
 
 
@@ -14,15 +9,15 @@ public class MyDocument extends TestBase {
 
 
     @Test
-    public void getAccessToDocumentTest() throws Exception {                           // -- ПРОВЕРКА ШАРИНГА ДОКУМЕНТОВ -- //
-        app.getNavigationHelper().goToDocumentsPage();                                 // Войти на страницу документов
-        app.getBankIdAuthorizationHalper().privatBankAuthorization();                  // Войти через Bank ID
-        app.getDocumentsHalper().getAccessCode("Test");                                // Выбрать документ и разшарил
-        assertTrue(app.getDocumentsHalper().isAccessCodeNotNull());                    // Сохранить код
+    public void getAccessToDocumentTest()  {                           // -- ПРОВЕРКА ШАРИНГА ДОКУМЕНТОВ -- //
+        mainPage.goToDocuments();                                // Войти на страницу документов
+        authorizationPage.privatBankAuthorization();                  // Войти через Bank ID
+        documentsPage.getAccessCode("Test");                                // Выбрать документ и разшарил
+        documentsPage.isAccessCodeNotNull();                    // Сохранить код
                                                                                        // TODO выйти из акк
                                                                                        // TODO проверить что вышел (наличие авторизации в меню документов)
-        app.getDocumentsHalper().searchDocumentWithCode();                             // Переход на поиск по коду , ввести код
-        assertTrue(app.getDocumentsHalper().isDocumentFound());                        // Проверка , что появилась кнопка загрузки и разшариный документ
+        documentsPage.searchDocumentWithCode();                             // Переход на поиск по коду , ввести код
+        documentsPage.isDocumentFound();                        // Проверка , что появилась кнопка загрузки и разшариный документ
     }
 
     // TODO
@@ -52,10 +47,10 @@ public class MyDocument extends TestBase {
     @Test
     public void uploadDocumentTest() throws Exception {
         String document = "src/resources/Квитанция.txt";
-        app.getNavigationHelper().goToDocumentsPage();
-        app.getBankIdAuthorizationHalper().privatBankAuthorization();
-        app.getDocumentsHalper().isDocumentUpload(document);
-        app.getDocumentsHalper().saveDocument();     // дописать выбор нужного документа в DocumentsPage
+        mainPage.goToDocuments();
+        authorizationPage.privatBankAuthorization();
+        documentsPage.isDocumentUpload(document);
+        documentsPage.saveDocument();     // дописать выбор нужного документа в DocumentsPage
         //TODO  дописать тест:
         // Проверить что появился новый загруженный документ
         // Выйти из акк /обновить страницу

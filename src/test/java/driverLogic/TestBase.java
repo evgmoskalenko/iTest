@@ -1,48 +1,53 @@
 package driverLogic;
 
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.util.Calendar;
-import java.util.Properties;
-
-import appLogic.Screen;
+import appLogic.ApplicationManager;
+import appLogic.Constants;
 import com.google.common.io.Files;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import pages.BankIdAuthorizationPage;
+import pages.DocumentsPage;
+import pages.MainPage;
 
-import appLogic.ApplicationManager;
-
-
+import java.io.File;
+import java.util.Calendar;
 
 public class TestBase {
 
-    protected static ApplicationManager app;
+    private static WebDriver driver;
+    public ApplicationManager app;
+    public MainPage mainPage;
+    public BankIdAuthorizationPage authorizationPage;
+    public DocumentsPage documentsPage;
 
 
-    @BeforeSuite
-    public void setUp() throws Exception {
 
-        Properties properties = new Properties();
-        properties.load(new FileReader(new File("application.properties")));
-        app = new ApplicationManager(properties);
+    @BeforeClass()
+    public static void setUp() {
+        driver = ApplicationManager.startTestsIn(Constants.Settings.BROWSER);
     }
 
-    @BeforeMethod
-    public void beforeMethod() throws Exception {
-        app.mainPage();
+    @BeforeMethod()
+    public void set() {
+        app = new ApplicationManager(driver);
+        mainPage = new MainPage(driver);
+        authorizationPage = new BankIdAuthorizationPage(driver);
+        documentsPage = new DocumentsPage(driver);
+        driver.get(Constants.Server.SERVER);
     }
 
-//    @AfterClass
-//    public void afterClass() throws Exception {
-//        app.signOut();
-//    }
+    @AfterClass()
+    public static void tearsDown() {
+        driver.quit();
+    }
 
     @AfterMethod(alwaysRun = true)
     public void takeScreenshot(ITestResult result) throws Exception
@@ -63,7 +68,7 @@ public class TestBase {
             //System.out.println("Directory creation failed. Папка уже создана?");
         }
 
-        Calendar calendar = new Screen().getCurrentCalendar();
+        Calendar calendar = new ApplicationManager().getCurrentCalendar();
         String SuccsessLogMessage =
                 "The test - \"" +
                         result.getMethod().getMethodName().toString() +
@@ -106,7 +111,7 @@ public class TestBase {
             {
                 File screenshot1 = new File("TestReport/html/Screens/" +result.getMethod().getMethodName() + ".png");
                 screenshot1.delete();
-                File screenshotTempFile = ((TakesScreenshot) app.getDriver()).getScreenshotAs(OutputType.FILE);
+                File screenshotTempFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 try
                 {
                     Files.copy(screenshotTempFile, screenshot1);
@@ -119,7 +124,7 @@ public class TestBase {
                         "<center>Скриншот снят при падении теста " +
                                 screenshot1.getName() +
                                 ", URL = " +
-                                app.getDriver().getCurrentUrl() +
+                                driver.getCurrentUrl() +
                                 "<br><div><a target=\"_blank\" href=\"Screens/" +
                                 result.getMethod().getMethodName() +
                                 ".png\"><img  style=\"height:400px; width: 600px;\"  src=\"" + "Screens/" +
@@ -137,12 +142,8 @@ public class TestBase {
         }
         catch (Exception e)
         {
-            new Screen().addErrorToTheReport("Connection with browser was lost.");
+            new ApplicationManager().addErrorToTheReport("Connection with browser was lost.");
         }
     }
 
-    @AfterSuite
-    public void tearDown() throws Exception {
-        app.stop();
-    }
 	}
