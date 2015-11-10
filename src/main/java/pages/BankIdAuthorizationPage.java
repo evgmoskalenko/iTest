@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class BankIdAuthorizationPage extends ApplicationManager {
     private WebDriver driver;
@@ -47,6 +48,25 @@ public class BankIdAuthorizationPage extends ApplicationManager {
     @FindBy(id = "signInButton")
     public WebElement signIn;         //  кнопка входа после ввода ОТР
 
+    //    ------------------- Элементы входа/выхода------------------------------//
+    @FindBy(xpath = "//span[contains(.,'Дмитро Олександрович Дубілет')]")
+    public WebElement fio;         //  ФИО клиента после входа
+
+
+    @FindBy(xpath = "//span[contains(.,'Вийти')]")
+    public WebElement logOutButton;         //  кнопка выхода
+
+
+
+    public void logOut () {
+        logOutButton.click();
+         }
+
+
+
+    //    ------------------- Метод проверки ФИО после входа  ------------------------------//
+    public void verifyFIO () {
+    Assert.assertEquals(fio.getText(), Constants.Settings.Data.FIO_UA); }
 
     //    ------------------- Метод ввода ОТР  ------------------------------//
     public void typeOTP ( ) {
@@ -82,6 +102,7 @@ public class BankIdAuthorizationPage extends ApplicationManager {
                 selectPrivatBankBankID();
                 typeLoginPassword();
                 typeOTP();
+                verifyFIO();
     }
 
 }

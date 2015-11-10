@@ -44,19 +44,19 @@ public class MyDocument extends TestBase {
     // Ввести любой код
     // Проверка наличие ошибки "Неправильний код"
 
-    @Test
-    public void uploadDocumentTest() throws Exception {
-        String document = "src/resources/Квитанция.txt";
-        mainPage.goToDocuments();
-        authorizationPage.privatBankAuthorization();
-        documentsPage.isDocumentUpload(document);
-        documentsPage.saveDocument();     // дописать выбор нужного документа в DocumentsPage
-        //TODO  дописать тест:
-        // Проверить что появился новый загруженный документ
-        // Выйти из акк /обновить страницу
-        // Проверить наличие кнопок для входа в ИД Банк ЭЦП
+//    @Test
+//    public void uploadDocumentTest() throws Exception {
+//        String document = "src/resources/Квитанция.txt";
+//        mainPage.goToDocuments();
+//        authorizationPage.privatBankAuthorization();
+//        documentsPage.isDocumentUpload(document);
+//        documentsPage.saveDocument();     // дописать выбор нужного документа в DocumentsPage
+//        //TODO  дописать тест:
+//        // Проверить что появился новый загруженный документ
+//        // Выйти из акк /обновить страницу
+//        // Проверить наличие кнопок для входа в ИД Банк ЭЦП
 
-    }
+//    }
 
     // TODO
     // -- ПРОВЕРКА ВХОДА/ВЫХОДА ИЗ МЕНЮ ДОКУМЕНТОВ -- //
@@ -74,19 +74,6 @@ public class MyDocument extends TestBase {
     // Проверить наличие вкладок "Мои документи" "Поиск за кодом" "Нотариус"
     // Кликнуть по вкладке  "Нотариус"
     // Проверить наличие текста "Тут нотаріуси зможуть..."
-
-
-    // TODO ЭТО БУДЕ ПОЗЖЕ ... (пока не трогать)
-    // -- ПРОВЕРКА ЗАГРУЗКИ КОПИИ ДОКУМЕНТА -- //
-    // Войти на страницу документов
-    // Проверить наличие кнопок для входа в ИД Банк ЭЦП
-    // Войти через Bank ID
-    // Проверить наличие иконки загрузки копии документа
-    // Кликнуть по иконке занрузки паспорта
-    // Проверить что файл загрузилска корретный
-    // Выйти из акк /обновить страницу
-    // Проверить наличие кнопок для входа в ИД Банк ЭЦП
-
 
 
 

@@ -47,7 +47,7 @@ public class Constants {
         //    ------------------- Данные для подачи заявок  -----------------//
         public static class Data {
             public static final String Phone = "380102030405";
-            public static final String FIO_UA = "Дубілет Дмитро Олександрович";
+            public static final String FIO_UA = "Дмитро Олександрович Дубілет";
             public static final String FIO_RUS = "Дубилет Дмитрий Александрович";
             public static final String E_MAIL = "vidokgulich@gmail.com";
             public static final String BirthDay = "01.01.1960";

@@ -21,19 +21,24 @@ public class MyLogPage  extends ApplicationManager {
         this.driver = driver;
     }
 
+    //  =================  кноки входа в ид банк===============//
 	@FindBy(linkText = "увійдіть через BankID")
-	private WebElement bankIdAuthorizationButton;
+    public WebElement bankIdAuthorizationButton;
 	
 	@FindBy(linkText = "електронно-цифровий підпис")
-	private WebElement electronicDigitalSignatureButton;
-	
+    public WebElement electronicDigitalSignatureButton;
 
-    public boolean isMyLogDisplayed(){
-    	wait.until(presenceOfElementLocated(By.cssSelector("h1")));
-    	assertEquals("Мій журнал", driver.findElement(By.xpath("//h1[contains(.,'Мій журнал')]")).getText());
-		return true;
-    	
-	 }
-    	
+    //  =================  форма входа в журнал ===============//
+    @FindBy(xpath = "//h4[@class='form-signin-bankid-heading_']")
+    public WebElement formSignInBankId;
+
+    //  ================= ссылка на заявки  ===============//
+    @FindBy(xpath = "//a[@ng-click='limit = limit +10']")
+    public WebElement nextLink;
+
+    //  ================= ссылка на заявки  ===============//
+    @FindBy(xpath = "//h1[contains(.,'Мій журнал')]")
+    public WebElement myLog;
+
     }
 

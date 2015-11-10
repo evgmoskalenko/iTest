@@ -13,9 +13,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.BankIdAuthorizationPage;
-import pages.DocumentsPage;
-import pages.MainPage;
+import pages.*;
 
 import java.io.File;
 import java.util.Calendar;
@@ -27,6 +25,8 @@ public class TestBase {
     public MainPage mainPage;
     public BankIdAuthorizationPage authorizationPage;
     public DocumentsPage documentsPage;
+    public MyLogPage logPage;
+    public AboutPortalPage portalPage;
 
 
 
@@ -41,6 +41,8 @@ public class TestBase {
         mainPage = new MainPage(driver);
         authorizationPage = new BankIdAuthorizationPage(driver);
         documentsPage = new DocumentsPage(driver);
+        logPage = new MyLogPage(driver);
+        portalPage = new AboutPortalPage(driver);
         driver.get(Constants.Server.SERVER);
     }
 

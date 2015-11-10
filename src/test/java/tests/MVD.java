@@ -24,7 +24,7 @@ public class MVD extends TestBase {
         String city = Constants.Settings.City.Dnipropetrovsk;
         String getHelp = "Оформлення візи для виїзду за кордон.";
         // --------------------- Тест-кейс----------------------//
-        mainPage.search(service);
+        mainPage.typeInSearchField(service);
         app.pause(5000);
         Assert.assertEquals(mainPage.services.getText(), service);
         mainPage.clickService(service);

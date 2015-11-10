@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import driverLogic.TestBase;
 
@@ -8,10 +9,38 @@ public class FooterTest extends TestBase {
 
 	@Test
 	public void portalsNewsOnFacebookLinkTest () {
-        mainPage.clickServicesLink();
-        app.verifyTextPresent("Громадянам");
+        mainPage.goToServices();
+        Assert.assertEquals(mainPage.portalsNewsOnFacebookLink.getText(), "Новини порталу\n" +
+                "на Facebook");
     }
 
+    @Test
+    public void checkElectronDigitalSignatureLinkTest () {
+        mainPage.goToServices();
+        Assert.assertEquals(mainPage.checkElectronDigitalSignatureLink.getText(), "NEW Перевірити електронно-\n" +
+                "цифровий підпис");
+    }
+
+    @Test
+    public void errorOrABugOnThePortalLinkTest () {
+        mainPage.goToServices();
+        Assert.assertEquals(mainPage.errorOrABugOnThePortalLink.getText(), "Помилка або баг\n" +
+                "на Порталі?");
+    }
+
+    @Test
+    public void joinOnGitHubLinkTest () {
+        mainPage.goToServices();
+        Assert.assertEquals(mainPage.joinOnGitHubLink.getText(), "Приєднатись\n" +
+                "на GitHub!");
+    }
+
+    @Test
+    public void commentsAndOpportunitiesTest () {
+        mainPage.goToServices();
+        Assert.assertEquals(mainPage.commentsAndOpportunitiesLink.getText(), "Зауваження та\n" +
+                "пропозіції");
+    }
 
 
 }
