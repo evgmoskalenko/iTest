@@ -20,7 +20,7 @@ public class Constants {
             if (System.getProperty("BROWSER") != null) {
                 BROWSER = System.getProperty("BROWSER");
             } else {
-                BROWSER = "myfirefox";// = "chrome"; //firefox or proxy or myfirefox or chrome or ie or opera or htmlunit
+                BROWSER = "firefox";// = "chrome"; //firefox or proxy or myfirefox or chrome or ie or opera or htmlunit
             }
 
         }
