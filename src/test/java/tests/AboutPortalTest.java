@@ -8,7 +8,7 @@ public class AboutPortalTest extends TestBase {
 
 
     @Test
-    public void portalsNewsOnFacebookLinkTest() {
+    public void checkInfoAboutPortal() {
         mainPage.goToAboutPortal();
         Assert.assertEquals(portalPage.infoBlockOne.getText(), "На цьому порталі зібрано послуги, які державні органи України надають громадянам та бізнесу. Частина послуг надається через Інтернет (такі послуги позначені іконкою), інша частина послуг все ще очікує на своє впровадження в електронній формі.");
         Assert.assertEquals(portalPage.infoBlockTwo.getText(), "Цей портал зроблено волонтерською командою iGov в рамках боротьби з корупцією в Україні та вдосконалення бізнес-процесів в наших державних органах.");

@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import driverLogic.TestBase;
 
@@ -9,72 +10,60 @@ public class MyDocument extends TestBase {
 
 
     @Test
-    public void getAccessToDocumentTest()  {                           // -- ПРОВЕРКА ШАРИНГА ДОКУМЕНТОВ -- //
-        mainPage.goToDocuments();                                // Войти на страницу документов
-        authorizationPage.privatBankAuthorization();                  // Войти через Bank ID
-        documentsPage.getAccessCode("Test");                                // Выбрать документ и разшарил
-        documentsPage.isAccessCodeNotNull();                    // Сохранить код
-                                                                                       // TODO выйти из акк
-                                                                                       // TODO проверить что вышел (наличие авторизации в меню документов)
-        documentsPage.searchDocumentWithCode();                             // Переход на поиск по коду , ввести код
-        documentsPage.isDocumentFound();                        // Проверка , что появилась кнопка загрузки и разшариный документ
+    public void getAccessToDocumentTest()  {
+        mainPage.goToDocuments();
+        Assert.assertEquals(documentsPage.formSignInBankId.getText(), "Крок 1. Увійдіть в систему через BankID\n" +
+                "Сертифікат електронно-\n" +
+                "цифрового підпису");
+        authorizationPage.privatBankAuthorization();
+        Assert.assertEquals(documentsPage.infoBlockDocument.getText(), "Тут знаходяться всі Ваші документи, які були раніше завантажені авторизованими організаціями. Ви можете їх скачати або надати доступ третім особам (в тому числі іншим державним або приватним організаціям).");
+        documentsPage.getAccessCode("Test");
+        documentsPage.isAccessCodeNotNull();
+        Assert.assertEquals(documentsPage.alertInfoBlock.getText(), "Посилання, за яким користувач може отримати доступ");
+        documentsPage.clickOkButton();
+        authorizationPage.logOut();
+        mainPage.goToDocuments();
+        Assert.assertEquals(documentsPage.formSignInBankId.getText(), "Крок 1. Увійдіть в систему через BankID\n" +
+                "Сертифікат електронно-\n" +
+                "цифрового підпису");
+        documentsPage.searchDocumentWithCode();
+        documentsPage.isDocumentFound();
     }
 
-    // TODO
-    // -- ППРОВЕРКА ШАРИНГА ДОКУМЕНТОВ С ВВОДОМ ПОЧТЫ -- //
-    // Войти на страницу документов
-    // Войти через Bank ID
-    // Выбрать документ, ввести ФИО и почту/разшарить
-    // Сохранить код
-    // Выйти из акк /обновить страницу
-    // Проверить наличие кнопок для входа в ИД Банк ЭЦП
-    // Переход на поиск по коду , ввести код
-    // Проверка , что появилась кнопка загрузки и разшариный документ
-
-    // TODO
-    // -- ППРОВЕРКА ШАРИНГА ДОКУМЕНТОВ С ВВОДОМ НОМЕРА ТЕЛЕФОНА -- //
-    // Войти на страницу документов
-    // Войти через Bank ID
-    // Выбрать документ, ввести ФИО и телефон
-    // Сохранить код
-    // Выйти из акк /обновить страницу
-    // Проверить наличие кнопок для входа в ИД Банк ЭЦП
-    // Переход на поиск по коду , ввести код
-    // Проверить что появилось поле ввода номера телефона
-    // Ввести любой код
-    // Проверка наличие ошибки "Неправильний код"
-
-//    @Test
-//    public void uploadDocumentTest() throws Exception {
-//        String document = "src/resources/Квитанция.txt";
-//        mainPage.goToDocuments();
-//        authorizationPage.privatBankAuthorization();
-//        documentsPage.isDocumentUpload(document);
-//        documentsPage.saveDocument();     // дописать выбор нужного документа в DocumentsPage
-//        //TODO  дописать тест:
-//        // Проверить что появился новый загруженный документ
-//        // Выйти из акк /обновить страницу
-//        // Проверить наличие кнопок для входа в ИД Банк ЭЦП
-
-//    }
-
-    // TODO
-    // -- ПРОВЕРКА ВХОДА/ВЫХОДА ИЗ МЕНЮ ДОКУМЕНТОВ -- //
-    // Войти на страницу документов
-    // Проверить наличие кнопок для входа в ИД Банк ЭЦП
-    // Войти через Bank ID
-    // Проверить наличие полей : Документа/Дата завантаження копії/Ким завантажена копія/Автор ЕЦП/Дії   и кнопки "Добавить документ"
-    // Выйти из акк /обновить страницу
-    // Проверить наличие кнопок для входа в ИД Банк ЭЦП
+    @Test
+    public void getAccessToDocumentWithPhoneEmailTest()  {
+        mainPage.goToDocuments();
+        Assert.assertEquals(documentsPage.formSignInBankId.getText(), "Крок 1. Увійдіть в систему через BankID\n" +
+                "Сертифікат електронно-\n" +
+                "цифрового підпису");
+        authorizationPage.privatBankAuthorization();
+        Assert.assertEquals(documentsPage.infoBlockDocument.getText(), "Тут знаходяться всі Ваші документи, які були раніше завантажені авторизованими організаціями. Ви можете їх скачати або надати доступ третім особам (в тому числі іншим державним або приватним організаціям).");
+        documentsPage.getAccessCodeWithPhoneEmail("Test");
+        documentsPage.isAccessCodeNotNull();
+        Assert.assertEquals(documentsPage.alertInfoBlock.getText(), "Посилання, за яким користувач може отримати доступ");
+        documentsPage.clickOkButton();
+        authorizationPage.logOut();
+        mainPage.goToDocuments();
+        Assert.assertEquals(documentsPage.formSignInBankId.getText(), "Крок 1. Увійдіть в систему через BankID\n" +
+                "Сертифікат електронно-\n" +
+                "цифрового підпису");
+        documentsPage.searchDocumentWithCode();
+        Assert.assertEquals(documentsPage.infoBlockSMS.getText(), "Введіть отриманий Вами SMS код на телефон +38010*****05");
+        documentsPage.typeSMSCode();
+        Assert.assertEquals(documentsPage.errorBlockSMS.getText(), "Неправильний код");
 
 
-    // TODO
-    // -- ПРОВЕРКА ВКЛАДКИ НОТАРИУС -- //
-    // Войти на страницу документов
-    // Проверить наличие вкладок "Мои документи" "Поиск за кодом" "Нотариус"
-    // Кликнуть по вкладке  "Нотариус"
-    // Проверить наличие текста "Тут нотаріуси зможуть..."
+    }
 
 
 
-}
+    @Test
+    public void checkNotaryTabTest () {
+        mainPage.goToDocuments();
+        documentsPage.goToNotaryTab();
+        Assert.assertEquals(documentsPage.notaryInfoBlock.getText(), "Тут нотаріуси зможуть завантажувати документи із електронно-цифровим підписом. Таким чином, через нотаріусів будь-який документ можна буде переводити із паперового вигляду у цифровий.\n" +
+                "Докладніше про розділ Документи на порталі iGov\n" +
+                "(розділ у процесі розробки)");
+    }
+
+    }

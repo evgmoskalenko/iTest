@@ -59,6 +59,7 @@ public class BankIdAuthorizationPage extends ApplicationManager {
 
 
     public void logOut () {
+        pause(3000);
         logOutButton.click();
          }
 

@@ -5,6 +5,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 import appLogic.ApplicationManager;
 
+import appLogic.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,75 +34,107 @@ public class DocumentsPage extends ApplicationManager {
 // =================== Элементы таба "Мои документы" ===================//
 
     @FindBy(xpath = "//a[@href='/documents/user']")
-    private WebElement myDocumentsTab;                                 // Таб мои документы
+    public WebElement myDocumentsTab;                                 // Таб мои документы
+
+    @FindBy(xpath = "//div[@ng-hide='authProcess']")
+    public WebElement formSignInBankId;                                 // форма входа в банк ИД
+
+    @FindBy(xpath = "//p[@align='justify']")
+    public WebElement infoBlockDocument;                                 // форма входа в банк ИД
 
     @FindBy(xpath = "//a[@ng-click='loginWithBankId()']")
-    private WebElement bankIdAuthorizationButton;                      // Кнопка ИД Банка
+    public WebElement bankIdAuthorizationButton;                      // Кнопка ИД Банка
 
     @FindBy(xpath = "//button[contains(@ng-click,'loginWithEds()')]")
-    private WebElement edsAuthorizationButton;                         // Кнопка ЕЦП
+    public WebElement edsAuthorizationButton;                         // Кнопка ЕЦП
 
     @FindBy(xpath = "//button[contains(.,' Добавить документ ')]")
-    private WebElement uploadNewDocumentButton;                        // Кнопка "Добавить документ"
+    public WebElement uploadNewDocumentButton;                        // Кнопка "Добавить документ"
 
     @FindBy(name = "documentNameForUpload")
-    private WebElement nameNewDocumentField;                           // Поле ввода названия нового документа
+    public WebElement nameNewDocumentField;                           // Поле ввода названия нового документа
 
     @FindBy(name = "documentTypeForUpload")
-    private WebElement typeNewDocumentSelector;                        // Селектор выбора типа документа
+    public WebElement typeNewDocumentSelector;                        // Селектор выбора типа документа
 
     @FindBy(xpath = "//button[@ng-click='uploadDocument(documentTypeForUpload, documentNameForUpload)']")
-    private WebElement saveNewDocumentButton;                          // Кнопка сохранения нового документа
+    public WebElement saveNewDocumentButton;                          // Кнопка сохранения нового документа
 
-    @FindBy(css = "span.glyphicon.glyphicon-link")
-    private WebElement shareDocumentLink;                              // Иконка шаринга документа
+    @FindBy(xpath = "//tbody[1]/tr[1]/td[5]/a[2]/span")
+    public WebElement shareDocumentLink;                              // Иконка шаринга документа
 
-    @FindBy(id = "name")
-    private WebElement nameOfRecipientField;                           // Поле ввода ФИО для шаринга
+    @FindBy(xpath = "//table/tbody[1]/tr[2]/td/div/center/div//form/div[1]/div/input")
+    public WebElement nameOfRecipientField;                           // Поле ввода ФИО для шаринга
 
-    @FindBy(css = "button.btn.btn-primary")
-    private WebElement getCodeButton;                                  // Кнопка получения кода
+    @FindBy(xpath = "//tbody[1]/tr[2]/td/div/center//div/form/div[6]/button")
+    public WebElement getCodeButton;                                  // Кнопка получения кода
 
     @FindBy(id = "link")
-    private WebElement codeField;                                       // Поле с отображением кода
+    public WebElement codeField;                                       // Поле с отображением кода
 
     @FindBy(xpath = "//button[contains(@ng-click,'close()')]")
-    private WebElement okButton;                                        // Кнопка ОК форме отображения кода
+    public WebElement okButton;                                        // Кнопка ОК форме отображения кода
+
+    @FindBy(xpath = "//label[@for='link']")
+    public WebElement alertInfoBlock;                                // Инфо на всплывающем окне
+
+
+    @FindBy(xpath = "//input[@id='phone']")
+    public WebElement phoneField;                                // поле ввода телефона
+
+    @FindBy(xpath = "//tbody[1]/tr[2]/td/div/center/div//form/div[5]/div/input")
+    public WebElement emailField;                                // поле ввода почты
+
+
+    @FindBy(xpath = "//tbody[1]/tr[2]/td/div/center/div//form/div[3]/label[2]")
+    public WebElement yesRadioButton;                                // поле ввода почты
+
+
 
 
 // =================== Элементы таба "Поиск за кодом" ===================//
 
     @FindBy(xpath = "//a[@href='/documents/search']")
-    private WebElement searchWithCodeTab;                             // Таб  поиска документов
+    public WebElement searchWithCodeTab;                             // Таб  поиска документов
 
     @FindBy(id = "code")
-    private WebElement inputCodeField;                                 // Поле ввода  кода доступа
+    public WebElement inputCodeField;                                 // Поле ввода  кода доступа
 
     @FindBy(id = "typeId")
-    private WebElement typeDocumentSelector;                            // Селектор выбора документа
+    public WebElement typeDocumentSelector;                            // Селектор выбора документа
 
     @FindBy(id = "operatorId")
-    private WebElement operatorSelector;                                // Селектор выбора оператора
+    public WebElement operatorSelector;                                // Селектор выбора оператора
 
     @FindBy(xpath = "//button[@class='btn btn-primary']")
-    private WebElement searchDocumentButton;                            // Кнопка поиска документа
+    public WebElement searchDocumentButton;                            // Кнопка поиска документа
 
     @FindBy(xpath = "//a[contains(.,'Завантажити')]")
-    private WebElement downloadLink;                                    // Ссылка загрузки найденного документа
+    public WebElement downloadLink;                                    // Ссылка загрузки найденного документа
 
     @FindBy(id = "smsPass")
-    private WebElement inputSMSCodeField;                                // Пооле ввода паоля из СМС
+    public WebElement inputSMSCodeField;                                // Пооле ввода паоля из СМС
 
     @FindBy(xpath = "//button[@ng-disabled='!smsPass']")
-    private WebElement confirmDocumentButton;                            // Ссылка загрузки найденного документа
+    public WebElement confirmDocumentButton;                            // Ссылка загрузки найденного документа по смс
 
-    @FindBy(xpath = "//div[@role='alert']")
-    private WebElement alertError;                                       // Блок вывода ошибки
+
+    @FindBy(xpath = "//label[@for='smsPass']")
+    public WebElement infoBlockSMS;                                       // Блок sms инфо
+
+
+    @FindBy(xpath = " //div[@role='alert']")
+    public WebElement errorBlockSMS;                                       // Блок sms erorr
+
 
 // =================== Элементы таба "Нотариус" ===================//
 
     @FindBy(xpath = "//a[@href='/documents/notary']")
-    private WebElement notaryTab;                                       // Таб "Нотариусам"
+    public WebElement notaryTab;                                       // Таб "Нотариусам"
+
+    @FindBy(xpath = "//div[2]/div[2]/div/div/div/div")
+    public WebElement notaryInfoBlock;                                    // Инфо блок
+
 
 
     // =============================================== МЕТОДЫ  =================================================//
@@ -115,43 +148,35 @@ public class DocumentsPage extends ApplicationManager {
 
     public void searchDocumentByCode() {
         searchDocumentButton.click();
-
-    }
+   }
 
     public void inputCode() {
         inputCodeField.sendKeys(accessCode);
-
     }
 
     public void clickSearchWithCodeLink() {
         searchWithCodeTab.click();
-
     }
 
     public void clickShareDocumentLink() {
         shareDocumentLink.click();
-       ;
     }
 
     public void fillNameOfRecipientField(String name) {
         nameOfRecipientField.clear();
         nameOfRecipientField.sendKeys(name);
-
     }
 
     public void clickGetCodeButton() {
         getCodeButton.click();
-
     }
 
     public void saveCodeToAVariable() {
         setAccessCode(codeField.getAttribute("value"));
-
     }
 
     public void clickOkButton() {
         okButton.click();
-
     }
 
     public boolean verifyCodePresent() {
@@ -207,23 +232,22 @@ public class DocumentsPage extends ApplicationManager {
         robot.delay(300);
         }
 
-// save new document
-         public  void saveNewDocuments() {
-             nameNewDocumentField.sendKeys("Test");
-         new Select(driver.findElement(By.name("documentTypeForUpload"))).selectByVisibleText("ІПН");
-             nameNewDocumentField.click();
-
-         }
-
-
 // refresh Page
     public void refreshPage (){
     driver.navigate().refresh();
 
     }
+
+
+
+    public void  goToNotaryTab (){
+     notaryTab.click();
+    }
+
+
 //==================================================================
 public void getAccessCode(String name){
-    clickShareDocumentLink();
+            clickShareDocumentLink();
             fillNameOfRecipientField(name);
             clickGetCodeButton();
             saveCodeToAVariable();
@@ -231,15 +255,28 @@ public void getAccessCode(String name){
 }
 
 
+
+    public void getAccessCodeWithPhoneEmail(String name) {
+        clickShareDocumentLink();
+        fillNameOfRecipientField(name);
+        yesRadioButton.click();
+        typePhone();
+        emailField.sendKeys(Constants.Settings.Data.E_MAIL);
+        clickGetCodeButton();
+        saveCodeToAVariable();
+        clickOkButton();
+    }
+
     public void isAccessCodeNotNull() {
         verifyCodePresent();
     }
 
     public void searchDocumentWithCode(){
-        clickSearchWithCodeLink();
+                clickSearchWithCodeLink();
                 selectionOperator("iGov");
                 inputCode();
                 searchDocumentByCode();
+                pause(2000);
 
     }
 
@@ -249,22 +286,17 @@ public void getAccessCode(String name){
 
     }
 
-    public void isDocumentUpload(String document ) throws  AWTException  {
-        uploadFile(document);
+    public void typePhone() {
+        phoneField.clear();
+        phoneField.sendKeys("+"+Constants.Settings.Data.Phone);
+    }
+
+    public void typeSMSCode() {
+        inputSMSCodeField.sendKeys("11111");
+        confirmDocumentButton.click();
 
     }
 
-    public void saveDocument( )   {
-       saveNewDocuments();
-
-    }
-
-//    public void isMyLogDisplayed(){
-//        wait.until(presenceOfElementLocated(By.cssSelector("h1")));
-//        assertEquals("Мій журнал", driver.findElement(By.xpath("//h1[contains(.,'Мій журнал')]")).getText());
-//
-//
-//    }
 
 }
 
