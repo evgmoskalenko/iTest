@@ -4,6 +4,10 @@ package driverLogic;
 import appLogic.ApplicationManager;
 import appLogic.Constants;
 import com.google.common.io.Files;
+
+import ServicePages.CriminalRecordPage;
+import ServicePages.SubsidyPage;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +31,10 @@ public class TestBase {
     public DocumentsPage documentsPage;
     public MyLogPage logPage;
     public AboutPortalPage portalPage;
+    public SelectAreaPage selectAreaPage;
+    public StatusPage statusPage;
+    public SubsidyPage subsidyPage;
+    public CriminalRecordPage criminalRecordPage;
 
 
 
@@ -43,6 +51,10 @@ public class TestBase {
         documentsPage = new DocumentsPage(driver);
         logPage = new MyLogPage(driver);
         portalPage = new AboutPortalPage(driver);
+        selectAreaPage = new SelectAreaPage(driver);
+        statusPage = new StatusPage(driver);
+        subsidyPage = new SubsidyPage(driver);
+        criminalRecordPage = new CriminalRecordPage(driver);
         driver.get(Constants.Server.SERVER);
     }
 

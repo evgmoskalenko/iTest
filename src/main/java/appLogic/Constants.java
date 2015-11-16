@@ -39,8 +39,11 @@ public class Constants {
         //    ------------------- Услуги  -----------------//
         // Міліція та ДАІ
         public static class ServiceMVD {
-            public static final String CriminalRecord = " Надання довідки про відсутність (наявність) судимості або обмежень, передбачених кримінально-процесуальним законодавством";
-
+            public static final String CriminalRecord = "Надання довідки про відсутність (наявність) судимості або обмежень, передбачених кримінально-процесуальним законодавством";
+        }
+        //Взаємодія з державними органами
+        public static class InteractionWithPublicAuthorities {
+        	public static final String Subsidy = "Отримання субсидії на оплату житлово-комунальних послуг";
         }
 
 

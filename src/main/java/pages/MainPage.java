@@ -59,19 +59,12 @@ public class MainPage extends ApplicationManager {
    @FindBy(xpath = "//a[contains(@href, 'https://github.com/e-government-ua/iForum/issues')]")
    public WebElement commentsAndOpportunitiesLink;
 
-//---------------- Выбор сервиса по региону  ------------------//
+    //---------------- Выбор сервиса по региону  ------------------//
 
-    @FindBy(css = "button.btn.btn-default")
-    public WebElement regions;         // выпадающий список региона
-
-    @FindBy(xpath = "(//button[@type='button'])[3]")
-    public WebElement cities;          // выпадающий список города
 
     @FindBy(css = "p.ng-scope > a.ng-binding")
     public WebElement services ;         // название сервисов на главной странице
 
-    @FindBy(xpath = "//div[@class='ng-binding']")
-    public WebElement service;             // сервис на странице выбора региона шаг №1
 
     //---------------- Элементы поиска  ------------------//
 
@@ -83,18 +76,7 @@ public class MainPage extends ApplicationManager {
     //    ------------------- Метод выбора услуги  ------------------------------//
     public void clickService (String service ) {
         driver.findElement(By.xpath("//a[contains(.,'"+service+"')]")).click();
-    }
-
-    //    ------------------- Метод выбора региона  ------------------------------//
-    public void selectRegion (String region) {
-        regions.click();
-        driver.findElement(By.xpath("//a[contains(text(),'"+region+"')]")).click();
-    }
-
-    //    ------------------- Метод выбора города  ------------------------------//
-    public void selectCity (String city) {
-        cities.click();
-        driver.findElement(By.linkText(city)).click();
+        
     }
 
     //    ------------------- Метод поиска услуги  ------------------------------//

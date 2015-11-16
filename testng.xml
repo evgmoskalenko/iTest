@@ -8,6 +8,7 @@
       <class name="tests.MyLogTest"/>
       <class name="tests.SearchServiceTest"/>
       <class name="tests.FooterTest"/>
+      <class name="tests.CriminalRecordTest"/>
     </classes>
   </test> <!-- Test -->
   

@@ -9,10 +9,9 @@ import org.testng.annotations.Test;
 import pages.BankIdAuthorizationPage;
 import pages.DocumentsPage;
 import pages.MainPage;
+import pages.SelectAreaPage;;
 
-/**
- * Created by Privat24 on 09.11.2015.
- */
+
 public class MVD extends TestBase {
 
 
@@ -26,11 +25,11 @@ public class MVD extends TestBase {
         // --------------------- Тест-кейс----------------------//
         mainPage.typeInSearchField(service);
         app.pause(5000);
-        Assert.assertEquals(mainPage.services.getText(), service);
+        //Assert.assertEquals(mainPage.services.getText(), service);
         mainPage.clickService(service);
-        Assert.assertEquals(mainPage.service.getText(), service);
-        mainPage.selectRegion(region);
-        mainPage.selectCity(city);
+        Assert.assertEquals(selectAreaPage.serviceName.getText(), service);
+        selectAreaPage.selectRegion(region);
+        selectAreaPage.selectCity(city);
         authorizationPage.privatBankAuthorization();
     }
 }
