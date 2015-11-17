@@ -51,7 +51,7 @@ public class SubsidyTest extends TestBase {
         app.pause(5000);
         mainPage.clickService(service);
         Assert.assertEquals(selectAreaPage.serviceName.getText(), service);
-        //selectAreaPage.selectRegion(region);
+        selectAreaPage.selectRegion(region);
         authorizationPage.privatBankAuthorization();
         Assert.assertEquals(subsidyPage.serviceName.getText(), service);
         subsidyPage
