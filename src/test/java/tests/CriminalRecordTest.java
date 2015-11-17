@@ -17,7 +17,7 @@ public class CriminalRecordTest extends TestBase  {
         String service = Constants.Settings.ServiceMVD.CriminalRecord;
         String region = Constants.Settings.Region.Dnipropetrovska;
         String city = Constants.Settings.City.Dnipropetrovsk;
-        String birthDate = "12.11.1990";
+        //String birthDate = "12.11.1990";
         String birthLoc = "Украина";
         String сountry = "Україна";
         String goal = "Оформлення візи для виїзду за кордон.";
@@ -35,7 +35,7 @@ public class CriminalRecordTest extends TestBase  {
         authorizationPage.privatBankAuthorization();
         Assert.assertEquals(criminalRecordPage.serviceName.getText(), service);
 		
-		criminalRecordPage.typeInBirthDateField(birthDate)
+		criminalRecordPage.typeInBirthDateField("12.11.1990")
                           .typeInBirthLocField(birthLoc)
                           .selectСountry(сountry)
                           .selectGoal(goal)

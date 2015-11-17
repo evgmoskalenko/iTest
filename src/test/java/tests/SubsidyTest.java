@@ -15,7 +15,7 @@ public class SubsidyTest extends TestBase {
 
 
 
-	//@Test
+	@Test
     public void DnipropetrovskSubsidyTest() {
         // ------------------- Тестовые данные -------------------//
         String service = Constants.Settings.InteractionWithPublicAuthorities.Subsidy;

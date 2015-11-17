@@ -111,6 +111,11 @@ public class MainPage extends ApplicationManager {
 	aboutPortalLink.click();
     }
 
+	public void goToService() {
+		driver.get("https://test-version.igov.org.ua/service/176/general"); //временно из за бага поиска
+		
+	}
+
 }
 
 

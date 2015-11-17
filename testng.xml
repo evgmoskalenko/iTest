@@ -9,6 +9,8 @@
       <class name="tests.SearchServiceTest"/>
       <class name="tests.FooterTest"/>
       <class name="tests.CriminalRecordTest"/>
+      <class name="tests.SubsidyTest"/>
+      <class name="tests.InternationalPassportTest"/>
     </classes>
   </test> <!-- Test -->
   

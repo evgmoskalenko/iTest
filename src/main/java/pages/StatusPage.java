@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import ServicePages.CriminalRecordPage;
+import ServicePages.InternationalPassportPage;
 import ServicePages.SubsidyPage;
 
 
@@ -45,6 +46,10 @@ public class StatusPage extends ApplicationManager {
     	refIdField.sendKeys(CriminalRecordPage.referenceNumber);
     	return this;
     }
+	public StatusPage inputReferenceNumberForInternationalPassport() {
+		refIdField.sendKeys(InternationalPassportPage.referenceNumber);
+		return this;
+	}
 
 
 	public StatusPage clickViewStatusButton() {
@@ -57,6 +62,7 @@ public class StatusPage extends ApplicationManager {
 	driver.findElement(By.xpath("//td[contains(.,'"+status+"')]")).isDisplayed();
 		
 	}
+
 
 
 

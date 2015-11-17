@@ -6,6 +6,7 @@ import appLogic.Constants;
 import com.google.common.io.Files;
 
 import ServicePages.CriminalRecordPage;
+import ServicePages.InternationalPassportPage;
 import ServicePages.SubsidyPage;
 
 import org.openqa.selenium.OutputType;
@@ -35,6 +36,7 @@ public class TestBase {
     public StatusPage statusPage;
     public SubsidyPage subsidyPage;
     public CriminalRecordPage criminalRecordPage;
+    public InternationalPassportPage internationalPassportPage;
 
 
 
@@ -55,6 +57,7 @@ public class TestBase {
         statusPage = new StatusPage(driver);
         subsidyPage = new SubsidyPage(driver);
         criminalRecordPage = new CriminalRecordPage(driver);
+        internationalPassportPage = new InternationalPassportPage(driver);
         driver.get(Constants.Server.SERVER);
     }
 

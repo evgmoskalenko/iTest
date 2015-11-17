@@ -45,7 +45,10 @@ public class Constants {
         public static class InteractionWithPublicAuthorities {
         	public static final String Subsidy = "Отримання субсидії на оплату житлово-комунальних послуг";
         }
-
+      //Посвідчення особи, Громадянство, Місце проживання
+        public static class Identity {
+        	public static final String InternationalPassport = "Видача/заміна паспорта громадянина для виїзду за кордон";
+        }
 
         //    ------------------- Данные для подачи заявок  -----------------//
         public static class Data {
