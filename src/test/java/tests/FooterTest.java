@@ -17,7 +17,7 @@ public class FooterTest extends TestBase {
     @Test
     public void checkElectronDigitalSignatureLinkTest () {
         mainPage.goToServices();
-        Assert.assertEquals(mainPage.checkElectronDigitalSignatureLink.getText(), "NEW Перевірити електронно-\n" +
+        Assert.assertEquals(mainPage.checkElectronDigitalSignatureLink.getText(), "Перевірити електронно-\n" +
                 "цифровий підпис");
     }
 
@@ -38,8 +38,8 @@ public class FooterTest extends TestBase {
     @Test
     public void commentsAndOpportunitiesTest () {
         mainPage.goToServices();
-        Assert.assertEquals(mainPage.commentsAndOpportunitiesLink.getText(), "Зауваження та\n" +
-                "пропозіції");
+        Assert.assertEquals(mainPage.volunteerIGov.getText(), "NEW Станьте\n" +
+                "волонтером iGov!");
     }
 
 

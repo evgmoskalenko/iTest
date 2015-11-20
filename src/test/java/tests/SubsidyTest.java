@@ -22,7 +22,7 @@ public class SubsidyTest extends TestBase {
         String region = Constants.Settings.Region.Dnipropetrovska;
         String area = "Амур-Нижньодніпровський, м.Дніпропетровськ";
         String placeOfLiving = "test";
-        String phone = "931234567";
+        String phone = "0931234567";
         String email = "test@gmail.com";
         String subsidyType = "Оплата житлово-комунальних послуг";
         String electricity = "Не користуюсь";

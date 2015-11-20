@@ -56,8 +56,8 @@ public class MainPage extends ApplicationManager {
    @FindBy(xpath = "//a[contains(@href, 'https://github.com/e-government-ua/i/wiki/%D0%AF%D0%BA-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%B8-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D1%83')]")
    public WebElement joinOnGitHubLink;
 
-   @FindBy(xpath = "//a[contains(@href, 'https://github.com/e-government-ua/iForum/issues')]")
-   public WebElement commentsAndOpportunitiesLink;
+   @FindBy(xpath = "//a[contains(@href,'https://docs.google.com/forms/d/1w-BR01CSicvhWSXb36CiRjHCwvp-vyPuTHBaWw1iW4U/viewform')]")
+   public WebElement volunteerIGov;
 
     //---------------- Выбор сервиса по региону  ------------------//
 
