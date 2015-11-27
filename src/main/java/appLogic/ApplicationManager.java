@@ -27,8 +27,9 @@ import static org.testng.Assert.fail;
 public class ApplicationManager {
 
     public WebDriver driver;
-    public String baseUrl;
+    private static String baseUrl;
     public WebDriverWait wait;
+    public ApplicationManager app;
 
     public ApplicationManager (WebDriver driver) {
         this.driver = driver;

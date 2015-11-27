@@ -11,6 +11,7 @@
       <class name="tests.CriminalRecord"/>
       <class name="tests.Subsidy"/>
       <class name="tests.InternationalPassport"/>
+      <class name="tests.TestServices"/>
     </classes>
   </test> <!-- Test -->
   
