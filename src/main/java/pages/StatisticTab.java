@@ -18,10 +18,10 @@ public class StatisticTab {
     //---------------- Элементы таба статистика ------------------//
 
     @FindBy(xpath = "//*[@class='table table-striped ng-scope']//th[3]")
-    public WebElement taimingColumn;
+    public WebElement timingColumn;
 
     @FindBy(xpath = "//*[@class='table table-striped ng-scope']//tr/td[3]")
-    public WebElement taimingRow;
+    public WebElement timingRow;
 
     @FindBy(xpath = "//*[@class='table table-striped ng-scope']//th[2]")
     public WebElement numberOfServicesProvidedColumn;
