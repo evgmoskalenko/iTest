@@ -41,6 +41,7 @@ public class TestBase {
     public InternationalPassportPage internationalPassportPage;
     public TestDependenceFormPage testDependenceFormPage;
     public TestFieldsBankidPage testFieldsBankidPage;
+    public StatisticTab statisticTab;
 
 
 
@@ -64,6 +65,7 @@ public class TestBase {
         internationalPassportPage = new InternationalPassportPage(driver);
         testDependenceFormPage = new TestDependenceFormPage(driver);
         testFieldsBankidPage = new TestFieldsBankidPage(driver);
+        statisticTab = new StatisticTab(driver);
         driver.get(Constants.Server.VersionSERVER);
     }
 

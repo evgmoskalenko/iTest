@@ -17,7 +17,7 @@ public class SelectAreaPage extends ApplicationManager {
         this.driver = driver;
     }
 	
-  //---------------- Элементы страницы------------------//
+    //---------------- Элементы страницы------------------//
     
     @FindBy(xpath = "//div[@class='service-name ng-binding']")
     public WebElement serviceName;             // название услуги
@@ -27,10 +27,11 @@ public class SelectAreaPage extends ApplicationManager {
 
     @FindBy(xpath = "(//button[@type='button'])[3]")
     public WebElement cities;          // выпадающий список города
+
     
     
     
-    //----------------Методы по работе с элементами------------------// 
+    //---------------- Методы по работе с элементами------------------//
     
     //    ------------------- Метод выбора региона  ------------------------------//
     public void selectRegion (String region) {
@@ -42,6 +43,12 @@ public class SelectAreaPage extends ApplicationManager {
     public void selectCity (String city) {
         cities.click();
         driver.findElement(By.linkText(city)).click();
+    }
+
+    //---------------- Методы выбора табов услуги ------------------//
+
+    public void clickServiceTab (String serviceTab) {
+        driver.findElement(By.xpath("//a[contains(.,'" + serviceTab + "')]")).click();
     }
 
 }
